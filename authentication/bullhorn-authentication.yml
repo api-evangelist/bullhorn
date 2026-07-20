@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source: https://bullhorn.github.io/rest-api-docs/ + live loginInfo discovery
+docs: https://bullhorn.github.io/rest-api-docs/
+summary:
+  types: [oauth2, session-token]
+  oauth2_flows: [authorizationCode, refreshToken]
+  session_token: BhRestToken
+  notes: >-
+    Two-stage authentication. Stage 1 is standard OAuth 2.0 (authorization_code
+    grant with refresh_token) against the data-center OAuth endpoint. Stage 2
+    exchanges the OAuth access_token via the REST /login call for a short-lived
+    BhRestToken session token that authenticates all subsequent REST calls.
+    Bullhorn OAuth is session/user scoped and does NOT expose granular OAuth
+    scopes, so there is no scopes/ artifact.
+discovery:
+  endpoint: https://rest.bullhornstaffing.com/rest-services/loginInfo?username={API_Username}
+  returns: [oauthUrl, restUrl, atsUrl, coreUrl, novoUrl]
+  note: Clients must call loginInfo first to resolve the correct data-center (swimlane) oauthUrl and restUrl; a 307 redirect is issued if the wrong data center is used.
+schemes:
+  - name: OAuth2
+    type: oauth2
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://auth.bullhornstaffing.com/oauth/authorize
+        tokenUrl: https://auth.bullhornstaffing.com/oauth/token
+        refresh: true
+        note: Host is data-center-specific; resolve via loginInfo oauthUrl. auth.bullhornstaffing.com is the default cluster.
+    sources: [https://bullhorn.github.io/rest-api-docs/, live loginInfo]
+  - name: BhRestToken
+    type: apiKey
+    scheme: session-token
+    in: [header, query, cookie]
+    parameter_name: BhRestToken
+    obtained_via: GET https://rest.bullhornstaffing.com/login?access_token={oauth_access_token}&version=*
+    validation: GET {corpToken}/ping returns sessionExpires timestamp
+    expiry: session expires; refresh on 401; missing token yields 412 Precondition Failed
+    sources: [https://bullhorn.github.io/rest-api-docs/]
