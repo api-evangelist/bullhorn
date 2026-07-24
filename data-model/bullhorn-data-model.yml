@@ -1,0 +1,75 @@
+generated: '2026-07-18'
+method: searched
+source: https://bullhorn.github.io/rest-api-docs/ (Staffing Object Model entity reference)
+note: >-
+  Derived from Bullhorn's published Staffing Object Model entity reference, not from an
+  OpenAPI spec (Bullhorn publishes no machine-readable spec). Associations reflect the
+  documented to-one / to-many relationships between core entities.
+entities:
+  - name: Candidate
+    summary: A person who may be placed into a job (the core recruiting record).
+    relationships:
+      - {type: belongs_to, target: CorporateUser, via: owner}
+      - {type: belongs_to, target: Category, via: category}
+      - {type: has_many, target: JobSubmission, via: submissions}
+      - {type: has_many, target: Placement, via: placements}
+      - {type: has_many, target: Skill, via: skills}
+      - {type: has_many, target: Certification, via: certifications}
+  - name: JobOrder
+    summary: An open job/requisition to be filled.
+    relationships:
+      - {type: belongs_to, target: ClientCorporation, via: clientCorporation}
+      - {type: belongs_to, target: ClientContact, via: clientContact}
+      - {type: belongs_to, target: CorporateUser, via: owner}
+      - {type: has_many, target: JobSubmission, via: submissions}
+      - {type: has_many, target: Placement, via: placements}
+  - name: JobSubmission
+    summary: A candidate submitted to a job order (links Candidate <-> JobOrder).
+    relationships:
+      - {type: belongs_to, target: Candidate, via: candidate}
+      - {type: belongs_to, target: JobOrder, via: jobOrder}
+  - name: Placement
+    summary: A candidate placed into a job order (a filled/won job).
+    relationships:
+      - {type: belongs_to, target: Candidate, via: candidate}
+      - {type: belongs_to, target: JobOrder, via: jobOrder}
+      - {type: belongs_to, target: ClientCorporation, via: clientCorporation}
+      - {type: belongs_to, target: CorporateUser, via: owner}
+  - name: ClientCorporation
+    summary: A client company / account.
+    relationships:
+      - {type: has_many, target: ClientContact, via: clientContacts}
+      - {type: has_many, target: JobOrder, via: jobOrders}
+      - {type: has_many, target: ClientCorporation, via: childClientCorporations}
+      - {type: belongs_to, target: CorporateUser, via: owner}
+  - name: ClientContact
+    summary: A person at a client company.
+    relationships:
+      - {type: belongs_to, target: ClientCorporation, via: clientCorporation}
+      - {type: belongs_to, target: CorporateUser, via: owner}
+  - name: Lead
+    summary: A prospective client or candidate lead.
+    relationships:
+      - {type: belongs_to, target: CorporateUser, via: owner}
+      - {type: belongs_to, target: ClientCorporation, via: clientCorporation}
+  - name: Opportunity
+    summary: A sales opportunity against a client.
+    relationships:
+      - {type: belongs_to, target: ClientCorporation, via: clientCorporation}
+      - {type: belongs_to, target: ClientContact, via: clientContact}
+      - {type: belongs_to, target: CorporateUser, via: owner}
+  - name: Appointment
+    summary: A calendar appointment linked to recruiting records.
+    relationships:
+      - {type: belongs_to, target: Candidate, via: candidate}
+      - {type: belongs_to, target: ClientContact, via: clientContact}
+      - {type: belongs_to, target: JobOrder, via: jobOrder}
+      - {type: belongs_to, target: Placement, via: placement}
+  - name: Note
+    summary: A logged note/activity against one or more entities.
+    relationships:
+      - {type: belongs_to, target: CorporateUser, via: commentingPerson}
+  - name: CorporateUser
+    summary: An internal Bullhorn user (recruiter / owner of records).
+    relationships:
+      - {type: belongs_to, target: ClientCorporation, via: corporation}

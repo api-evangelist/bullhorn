@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: searched
+source: https://bullhorn.github.io/rest-api-docs/ + https://status.bullhorn.com
+versioning:
+  scheme: login-negotiated
+  current: '*'
+  note: The REST API version is negotiated on the /login call via the version parameter; '*' selects the latest available version. There is no URI-path or header version.
+  docs: https://bullhorn.github.io/rest-api-docs/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal RFC 8594 Sunset/Deprecation header policy is published for the REST API.
+sla:
+  url: null
+  uptime_target: null
+status_page: https://status.bullhorn.com

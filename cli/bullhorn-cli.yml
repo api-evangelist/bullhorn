@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/bullhorn/dataloader
+cli:
+  name: Bullhorn Data Loader
+  binary: dataloader
+  language: java
+  license: AGPL-3.0
+  repo: https://github.com/bullhorn/dataloader
+  ui_variant: https://github.com/bullhorn/dataloader-ui
+  description: >-
+    Official command-line tool for bulk importing, updating, and deleting Bullhorn
+    CRM records from CSV files via the REST API. Authenticates with OAuth credentials
+    and maps CSV columns to Bullhorn entity fields.
+  official: true
+install:
+  methods:
+    - "Download the release JAR from https://github.com/bullhorn/dataloader/releases"
+    - "Run: java -jar dataloader.jar <command> <Entity> path/to/data.csv"
+commands:
+  - name: load
+    summary: Insert or update records from a CSV file into a given entity.
+  - name: delete
+    summary: Delete records listed in a CSV file.
+  - name: template
+    summary: Generate a CSV template with the valid columns for an entity (meta-driven).
+  - name: convertAttachments
+    summary: Convert and load candidate/contact file attachments.
+  - name: loadAttachments
+    summary: Attach files to existing records from a CSV manifest.
+entities_supported: [Candidate, ClientContact, ClientCorporation, JobOrder, Placement, Lead, Opportunity, Note, Appointment]
+config:
+  file: dataloader.properties
+  keys: [username, password, clientId, clientSecret, authorizeUrl, tokenUrl, loginUrl]

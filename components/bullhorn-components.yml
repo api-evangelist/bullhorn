@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/bullhorn/novo-elements + https://www.npmjs.com/package/novo-elements
+components:
+  - family: Novo Elements
+    kind: ui-component-library
+    framework: Angular
+    package:
+      registry: npm
+      name: novo-elements
+      version: 13.1.0
+      install: npm install novo-elements
+    repo: https://github.com/bullhorn/novo-elements
+    tokens_repo: https://github.com/bullhorn/novo-design-tokens
+    icons_repo: https://github.com/bullhorn/bullhorn-icons
+    license: MIT
+    official: true
+    description: >-
+      Client-side UI component library implementing Bullhorn's Novo design language.
+      Provides form controls, data tables, chips, date/time pickers, tiles, modals,
+      toasts, and layout primitives used to build apps against the Bullhorn platform.
+    element_groups:
+      - forms (fields, pickers, chips, editors)
+      - data (table, list, tiles, calendar)
+      - overlays (modal, toast, tooltip, dropdown)
+      - navigation (tabs, header, sidebar)
+    loader: Angular module import (NovoElementsModule)
+  - family: Career Portal
+    kind: hosted-app-template
+    framework: Angular
+    repo: https://github.com/bullhorn/career-portal
+    license: MIT
+    official: true
+    description: SDK-based, forkable candidate-facing job search & apply web app built on novo-elements.

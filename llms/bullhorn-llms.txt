@@ -1,0 +1,35 @@
+# Bullhorn
+
+> Bullhorn is a cloud-based CRM and applicant tracking system (ATS) for the staffing and recruitment industry. Its REST API exposes the Staffing Object Model — Candidate, JobOrder, JobSubmission, Placement, ClientCorporation, ClientContact, Lead, Opportunity, and related entities — with full CRUD, query, Lucene search, mass update, resume parsing, and file-attachment operations. Authentication is OAuth 2.0 exchanged for a BhRestToken session; requests route to data-center-specific hosts discovered via loginInfo.
+
+## APIs
+- [Bullhorn REST API docs](https://bullhorn.github.io/rest-api-docs/): Full REST reference — entities, query/search, auth, pagination.
+- [Developer portal](https://developer.bullhorn.com): Bullhorn developer hub (redirects to the docs site).
+- [Login discovery (loginInfo)](https://rest.bullhornstaffing.com/rest-services/loginInfo): Returns per-account oauthUrl and restUrl (data-center routing).
+
+## Authentication
+- OAuth 2.0 authorization_code + refresh_token → then GET /login?access_token=… to obtain a BhRestToken session token (header/query/cookie).
+- Authorize: https://auth.bullhornstaffing.com/oauth/authorize — Token: https://auth.bullhornstaffing.com/oauth/token (host is data-center specific; resolve via loginInfo).
+
+## SDKs & Tools
+- [sdk-rest (Java)](https://github.com/bullhorn/sdk-rest): Official Java SDK — Maven com.bullhorn:sdk-rest.
+- [passport-bullhorn (JS)](https://github.com/bullhorn/passport-bullhorn): Official Passport.js OAuth strategy.
+- [Data Loader (CLI)](https://github.com/bullhorn/dataloader): Official CSV bulk import/update/delete CLI.
+- [novo-elements](https://github.com/bullhorn/novo-elements): Official Angular UI component library (Novo design language).
+- [career-portal](https://github.com/bullhorn/career-portal): Forkable candidate job-search app template.
+
+## Conventions
+- Pagination: start/count offset params; responses carry total/start/count/data.
+- Rate limits: HTTP 429 → wait 1s and retry.
+- Errors: Bullhorn JSON envelope (errorMessage/errorCode); HTTP status conveys class. Not RFC 9457.
+- Versioning: negotiated on /login via version=* (latest).
+- No documented idempotency-key header.
+
+## Company
+- [Website](https://www.bullhorn.com/)
+- [Pricing](https://www.bullhorn.com/pricing/)
+- [Support](https://www.bullhorn.com/support/)
+- [Blog](https://www.bullhorn.com/blog/)
+- [Status](https://status.bullhorn.com)
+- [Security & compliance](https://www.bullhorn.com/security/) (SOC 2, GDPR)
+- [GitHub org](https://github.com/bullhorn)

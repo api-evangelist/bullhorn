@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: https://bullhorn.github.io/rest-api-docs/
+docs: https://bullhorn.github.io/rest-api-docs/
+authentication:
+  style: session-token (BhRestToken) obtained after OAuth 2.0
+  ref: authentication/bullhorn-authentication.yml
+base_url:
+  pattern: https://rest{swimlane#}.bullhornstaffing.com/rest-services/{corpToken}/
+  discovery: restUrl returned by /login and by loginInfo
+  data_center_routing: A 307 redirect is returned when the wrong data-center host is used; clients must follow it.
+idempotency:
+  supported: false
+  note: Bullhorn does not document an idempotency-key header. Writes use entity PUT (create) / POST (update) semantics without an idempotency contract.
+pagination:
+  style: offset
+  params:
+    start: record offset (default 0)
+    count: page size (default 20; max typically 500, up to 10000 on some query endpoints)
+  response_fields: [total, start, count, data]
+field_selection:
+  fields_param: "fields — comma-separated list of entity fields to return; supports association traversal (e.g. clientCorporation(id,name))"
+  meta_param: "meta — controls metadata returned (basic|full|off)"
+query_and_search:
+  query: "where clause over indexed DB fields (/query/{Entity})"
+  search: "Lucene-syntax full-text search (/search/{Entity})"
+  fast_find: "/find — cross-entity fast find"
+versioning:
+  scheme: login-negotiated
+  param: version (wildcard '*' selects latest) supplied on the /login call
+  ref: lifecycle/bullhorn-lifecycle.yml
+error_envelope:
+  shape: JSON body with errorMessage / errorMessageKey / errorCode fields; HTTP status conveys class
+  format: bullhorn-json (not RFC 9457)
+  ref: errors/bullhorn-error-codes.yml
+rate_limiting:
+  signal: HTTP 429
+  guidance: Wait 1 second, then retry; repeat until successful. No documented X-RateLimit headers.
+tracing:
+  request_id_header: none documented

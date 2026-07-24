@@ -1,0 +1,26 @@
+generated: '2026-07-18'
+method: searched
+source: https://bullhorn.github.io/rest-api-docs/ + https://www.bullhorn.com/security/
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: REST API authenticates via OAuth 2.0 authorization_code + refresh_token before issuing a BhRestToken session.
+  - id: oidc
+    conforms: false
+    evidence: No OpenID Connect discovery document is published.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors return a Bullhorn JSON envelope (errorMessage/errorCode), not application/problem+json.
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: No documented Sunset/Deprecation header policy.
+  - id: json-api
+    conforms: false
+  - id: odata
+    conforms: false
+  - id: soc2
+    conforms: true
+    evidence: SOC 2 certification stated on https://www.bullhorn.com/security/
+  - id: gdpr
+    conforms: true
+    evidence: GDPR compliance stated on https://www.bullhorn.com/security/

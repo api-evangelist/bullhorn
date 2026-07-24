@@ -1,0 +1,39 @@
+generated: '2026-07-18'
+method: searched
+source: https://bullhorn.github.io/rest-api-docs/
+format: bullhorn-json
+envelope:
+  fields: [errorMessage, errorMessageKey, errorCode]
+  content_type: application/json
+  note: HTTP status code conveys the error class; RFC 9457 problem+json is NOT used.
+errors:
+  - status: 400
+    title: Bad Request
+    cause: Malformed request, invalid field, or invalid query/search syntax.
+  - status: 401
+    title: Unauthorized
+    cause: Invalid or expired BhRestToken / OAuth token.
+    remediation: Refresh the session token or re-run the OAuth + /login flow.
+  - status: 403
+    title: Forbidden
+    cause: Authenticated user lacks permission for the entity or operation.
+  - status: 404
+    title: Not Found
+    cause: Entity or record does not exist.
+  - status: 405
+    title: Method Not Allowed
+    cause: HTTP method not supported for the resource.
+  - status: 412
+    title: Precondition Failed
+    cause: Missing BhRestToken on the request.
+    remediation: Supply BhRestToken via header, query parameter, or cookie.
+  - status: 429
+    title: Too Many Requests
+    cause: Rate limit exceeded.
+    remediation: Wait 1 second then retry; repeat until successful.
+  - status: 500
+    title: Internal Server Error
+    cause: Server-side error.
+  - status: 503
+    title: Service Unavailable
+    cause: Data center temporarily unavailable; may accompany a 307 data-center redirect.

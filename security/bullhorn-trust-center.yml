@@ -1,0 +1,13 @@
+generated: '2026-07-18'
+method: searched
+probe: true
+source: https://www.bullhorn.com/security/
+url: https://www.bullhorn.com/security/
+certifications:
+- SOC 2
+- GDPR
+evidence:
+- source: https://www.bullhorn.com/security/
+  keywords:
+  - soc2
+  - gdpr

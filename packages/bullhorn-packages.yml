@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/bullhorn + Maven Central + npm registry
+packages:
+  - language: java
+    registry: maven
+    name: com.bullhorn:sdk-rest
+    version: 2.4.1
+    url: https://central.sonatype.com/artifact/com.bullhorn/sdk-rest
+    repo: https://github.com/bullhorn/sdk-rest
+    install: "implementation 'com.bullhorn:sdk-rest:2.4.1'"
+    description: Bullhorn Platform SDK library to access the Bullhorn REST API and Staffing Object Model from Java applications.
+    official: true
+  - language: javascript
+    registry: npm
+    name: passport-bullhorn
+    version: 0.0.4
+    url: https://www.npmjs.com/package/passport-bullhorn
+    repo: https://github.com/bullhorn/passport-bullhorn
+    install: npm install passport-bullhorn
+    description: Bullhorn (OAuth 2.0) authentication strategy for Passport.js.
+    official: true
+  - language: typescript
+    registry: npm
+    name: novo-elements
+    version: 13.1.0
+    url: https://www.npmjs.com/package/novo-elements
+    repo: https://github.com/bullhorn/novo-elements
+    install: npm install novo-elements
+    description: Bullhorn's Novo theme UI component library (Angular). Client-side UI components, not an API SDK — see components/ artifact.
+    official: true
+    family: ui-components
+  - language: java
+    registry: github
+    name: dataloader
+    url: https://github.com/bullhorn/dataloader
+    install: "download release JAR from https://github.com/bullhorn/dataloader/releases"
+    description: Command-line tool that imports/updates CSV data into Bullhorn CRM via the REST API. See cli/ artifact.
+    official: true
+    family: cli

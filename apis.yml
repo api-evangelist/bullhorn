@@ -1,7 +1,16 @@
 aid: bullhorn
 name: Bullhorn
-description: Bullhorn is a company surfaced as a portfolio company of insight-partners and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Bullhorn is a cloud-based CRM and applicant tracking system (ATS) built for the
+  staffing and recruitment industry. Its REST API exposes the Bullhorn Staffing
+  Object Model — Candidate, JobOrder, JobSubmission, Placement, ClientCorporation,
+  ClientContact, Lead, Opportunity, Note, Appointment and related entities — with
+  full CRUD, DB-backed query, Lucene full-text search, mass update, resume parsing,
+  and file-attachment operations. Authentication is OAuth 2.0 (authorization_code +
+  refresh_token) exchanged via a /login call for a short-lived BhRestToken session;
+  API traffic routes to data-center-specific hosts discovered through the loginInfo
+  endpoint. Bullhorn also publishes an official Java SDK, a Passport.js OAuth
+  strategy, the Novo Elements Angular UI component library, and a CSV Data Loader CLI.
 url: https://raw.githubusercontent.com/api-evangelist/bullhorn/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,12 +18,58 @@ x-backed-by:
 - insight-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://www.bullhorn.com/wp-content/themes/bullhorn/assets/images/bullhorn-logo.svg
 tags:
 - Company
-apis: []
+- Staffing
+- Recruitment
+- Applicant Tracking
+- ATS
+- CRM
+- Human Resources
+- REST
+- OAuth
+apis:
+- name: Bullhorn REST API
+  description: >-
+    REST API over the Bullhorn Staffing Object Model — CRUD, query, Lucene search,
+    mass update, resume parsing, and file attachments across Candidate, JobOrder,
+    Placement, ClientCorporation, ClientContact, Lead, Opportunity and related entities.
+  humanURL: https://bullhorn.github.io/rest-api-docs/
+  baseURL: https://rest.bullhornstaffing.com/rest-services/
+  tags:
+  - Staffing
+  - Recruitment
+  - ATS
+  - CRM
+  properties:
+  - type: Documentation
+    url: https://bullhorn.github.io/rest-api-docs/
+  - type: APIReference
+    url: https://bullhorn.github.io/rest-api-docs/
+  - type: Authentication
+    url: authentication/bullhorn-authentication.yml
+  - type: Conventions
+    url: conventions/bullhorn-conventions.yml
+  - type: ErrorCatalog
+    url: errors/bullhorn-error-codes.yml
+  - type: DataModel
+    url: data-model/bullhorn-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +78,60 @@ maintainers:
 common:
 - type: Website
   url: https://www.bullhorn.com/
+- type: DeveloperPortal
+  url: https://developer.bullhorn.com
+- type: Documentation
+  url: https://bullhorn.github.io/rest-api-docs/
+- type: APIReference
+  url: https://bullhorn.github.io/rest-api-docs/
+- type: GettingStarted
+  url: https://bullhorn.github.io/rest-api-docs/
+- type: GitHubOrganization
+  url: https://github.com/bullhorn
+- type: Support
+  url: https://www.bullhorn.com/support/
+- type: Blog
+  url: https://www.bullhorn.com/blog/
+- type: StatusPage
+  url: https://status.bullhorn.com
+- type: Pricing
+  url: https://www.bullhorn.com/pricing/
+- type: SignUp
+  url: https://www.bullhorn.com/request-a-demo/
+- type: TermsOfService
+  url: https://www.bullhorn.com/terms-of-service/
+- type: PrivacyPolicy
+  url: https://www.bullhorn.com/privacy-policy/
+- type: Authentication
+  url: authentication/bullhorn-authentication.yml
+- type: Conventions
+  url: conventions/bullhorn-conventions.yml
+- type: ErrorCatalog
+  url: errors/bullhorn-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/bullhorn-lifecycle.yml
+- type: Packages
+  url: packages/bullhorn-packages.yml
+- type: SDKs
+  url: packages/bullhorn-packages.yml
+- type: CLI
+  url: cli/bullhorn-cli.yml
+- type: Components
+  url: components/bullhorn-components.yml
+- type: DataModel
+  url: data-model/bullhorn-data-model.yml
+- type: Conformance
+  url: conformance/bullhorn-conformance.yml
+- type: Compliance
+  url: https://www.bullhorn.com/security/
+- type: TrustCenter
+  url: security/bullhorn-trust-center.yml
+- type: DomainSecurity
+  url: security/bullhorn-domain-security.yml
+- type: LLMsTxt
+  url: llms/bullhorn-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
