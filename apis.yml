@@ -43,6 +43,16 @@ tags:
 - CRM
 - Human Resources
 - REST
+- Authentication
+tags_raw:
+- Company
+- Staffing
+- Recruitment
+- Applicant Tracking
+- ATS
+- CRM
+- Human Resources
+- REST
 - OAuth
 apis:
 - name: Bullhorn REST API
