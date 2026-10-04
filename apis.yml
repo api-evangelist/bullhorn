@@ -48,9 +48,8 @@ image: https://www.bullhorn.com/wp-content/themes/bullhorn/assets/images/bullhor
 tags:
 - Company
 - Staffing
-- Recruitment
+- Recruiting
 - Applicant Tracking
-- ATS
 - CRM
 - Human Resources
 - REST
@@ -74,6 +73,11 @@ apis:
   humanURL: https://bullhorn.github.io/rest-api-docs/
   baseURL: https://rest.bullhornstaffing.com/rest-services/
   tags:
+  - Staffing
+  - Recruiting
+  - Applicant Tracking
+  - CRM
+  tags_raw:
   - Staffing
   - Recruitment
   - ATS
