@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/bullhorn/integrations
+- https://n8n.io/integrations/bullhorn/
+- https://composio.dev/toolkits/bullhorn
+- https://monid.ai/tools/bullhorn
+checked:
+- https://composio.dev/toolkits/bullhorn
+- https://monid.ai/tools/bullhorn
+- https://n8n.io/integrations/bullhorn/
+- https://zapier.com/apps/bullhorn/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
