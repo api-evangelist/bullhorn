@@ -1,16 +1,34 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/bullhorn/integrations
 - https://n8n.io/integrations/bullhorn/
 - https://composio.dev/toolkits/bullhorn
 - https://monid.ai/tools/bullhorn
 checked:
+- google-workspace/integrations/google-workspace-integration-edges.yml
 - https://composio.dev/toolkits/bullhorn
 - https://monid.ai/tools/bullhorn
 - https://n8n.io/integrations/bullhorn/
 - https://zapier.com/apps/bullhorn/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: Google Workspace (own)
+  partner: google-workspace
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://workspace.google.com/marketplace/app/bullhorn_for_email/174384294008
+  mirror_of: google-workspace/integrations/google-workspace-integration-edges.yml
+  apps:
+  - Bullhorn for Email
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Google Workspace app
 templates: []
