@@ -18,26 +18,16 @@ checked:
 - https://repo1.maven.org/maven2
 - https://rubygems.org/api/v1
 - https://zapier.com/apps/bullhorn/integrations
+- https://api.appexchange.salesforce.com/recommendations/v3/listings?type=apps
+- https://api.appexchange.salesforce.com/recommendations/v3/listings?type=consultants
+- https://appexchange.salesforce.com/
+- https://appexchange.salesforce.com/consulting
+- https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/security_review_overview.htm
+- https://slack.com/marketplace
+- salesforce/integrations/salesforce-integration-edges.yml
 summary: null
 marketplace_apps: []
 edges:
-- partner_name: Google Workspace (own)
-  partner: google-workspace
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://workspace.google.com/marketplace/app/bullhorn_for_email/174384294008
-  mirror_of: google-workspace/integrations/google-workspace-integration-edges.yml
-  apps:
-  - Bullhorn for Email
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Google Workspace app
 - partner_name: Maven Central
   partner: maven-central
   partner_match: register
@@ -98,4 +88,91 @@ edges:
     detected: '2026-10-18'
   detected_by: sweep-official-sdks.py
   first_seen: '2026-10-18'
+- partner_name: Salesforce AppExchange Security Review
+  partner: salesforce
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/security_review_overview.htm
+  category: AppExchange security-reviewed publisher
+  contract_reference:
+    register: Salesforce AppExchange public listings (listing JSON) under the AgentExchange Security Review requirement
+    standard: Salesforce AppExchange Security Review
+    spec_file: null
+    role: security-reviewed-publisher
+    registered_name: Bullhorn
+    register_country: null
+    matched_domain: bullhorn.com
+    matched_by: domain
+    identity_source: the listing's own publisher.website (no lookup)
+    certified_products:
+    - product: Salesforce package (security-reviewed)
+      product_type: force/package
+      certifier: Salesforce (AgentExchange / AppExchange Security Review)
+      listings: 4
+      example_listing: https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000FeG19UAF
+      latest_approval: '2021-12-10'
+      lapsed: false
+      lapsed_note: the listing JSON prints solution.securityReview.approvalDate on a LIVE public listing; Salesforce
+        publishes no expiry, so no entry is marked lapsed (latest_approval is context)
+    - product: Agentforce agent / action (security-reviewed)
+      product_type: force/copilot
+      certifier: Salesforce (AgentExchange / AppExchange Security Review)
+      listings: 4
+      example_listing: https://appexchange.salesforce.com/appxListingDetail?listingId=6410aa05-1967-41a0-a0e1-e4ee2b5f32e1
+      latest_approval: '2025-02-06'
+      lapsed: false
+      lapsed_note: the listing JSON prints solution.securityReview.approvalDate on a LIVE public listing; Salesforce
+        publishes no expiry, so no entry is marked lapsed (latest_approval is context)
+    signal_note: certified_products = ONE entry per product type (listing technology) with a printed securityReview.approvalDate,
+      never per listing or version; a listing with no approval date reads nothing; listing counts / versions are
+      context
+    requirement: https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/security_review_overview.htm
+    detected_by: sweep-salesforce-appexchange.py
+    detected: '2026-10-21'
+  detected_by: sweep-salesforce-appexchange.py
+  first_seen: '2026-10-21'
+- partner_name: Google Workspace (own)
+  partner: google-workspace
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://workspace.google.com/marketplace/app/bullhorn_for_email/174384294008
+  mirror_of: google-workspace/integrations/google-workspace-integration-edges.yml
+  apps:
+  - Bullhorn for Email
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Google Workspace app
+- partner_name: Salesforce (own)
+  partner: salesforce
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appexchange.salesforce.com/appxListingDetail?listingId=a0N30000009k20iEAA
+  mirror_of: salesforce/integrations/salesforce-integration-edges.yml
+  apps:
+  - Bullhorn Recruitment Cloud Front Office (prev. Bullhorn for Salesforce)
+  - Bullhorn Amplify Agent for Clerical & Light Industrial Staffing
+  - Bullhorn Amplify Agent for Healthcare Staffing
+  - Bullhorn Amplify Agent for Professional Recruitment
+  - Bullhorn Recruitment Cloud Agent Suite
+  - Bullhorn Recruitment Cloud Workforce Management (prev. Sirenum)
+  - Mployee by Bullhorn Staffing & Recruitment (front- and mid-office)
+  - Textkernel by Bullhorn - Staffing and Recruiting Solutions
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: humanResources
 templates: []
