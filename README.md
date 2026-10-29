@@ -64,6 +64,97 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Bullhorn is a company surfaced as a portfolio company of insight-partners and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Bullhorn is a cloud-based CRM and applicant tracking system (ATS) built for the staffing and recruitment industry. Its REST API exposes the Bullhorn Staffing Object Model — Candidate, JobOrder, JobSubmission, Placement, ClientCorporation, ClientContact, Lead, Opportunity, Note, Appointment and related entities — with full CRUD, DB-backed query, Lucene full-text search, mass update, resume parsing, and file-attachment operations. Authentication is OAuth 2.0 (authorization_code + refresh_token) exchanged via a /login call for a short-lived BhRestToken session; API traffic routes to data-center-specific hosts discovered through the loginInfo endpoint. Bullhorn also publishes an official Java SDK, a Passport.js OAuth strategy, the Novo Elements Angular UI component library, and a CSV Data Loader CLI.
 
-Backed by: insight-partners — https://www.bullhorn.com/
+**Areas:** Company · Staffing · Recruiting · Applicant Tracking · CRM · Human Resources · REST · Authentication
+
+## Bullhorn on APIs.io
+
+Everything profiled for Bullhorn is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bullhorn/](https://apis.io/providers/bullhorn/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Bullhorn REST API](https://apis.io/apis/bullhorn/bullhorn-rest-api/) — REST API over the Bullhorn Staffing Object Model — CRUD, query, Lucene search, mass update, resume parsing, and file attachments across Candidate, JobOrder,…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bullhorn Authentication](https://apis.io/security/bullhorn/bullhorn-authentication/)
+- [Bullhorn Domain Security](https://apis.io/security/bullhorn/bullhorn-domain-security/)
+- [Bullhorn Trust Center](https://apis.io/security/bullhorn/bullhorn-trust-center/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.bullhorn.com/)
+- [Documentation](https://bullhorn.github.io/rest-api-docs/)
+- [Getting started](https://bullhorn.github.io/rest-api-docs/)
+- [API reference](https://bullhorn.github.io/rest-api-docs/)
+- [Pricing](https://www.bullhorn.com/pricing/)
+- [Sign up](https://www.bullhorn.com/request-a-demo/)
+- [Support](https://www.bullhorn.com/support/)
+- [Blog](https://www.bullhorn.com/blog/)
+- [Compliance](https://www.bullhorn.com/security/)
+- [Terms of service](https://www.bullhorn.com/terms-of-service/)
+- [Privacy policy](https://www.bullhorn.com/privacy-policy/)
+- [GitHub](https://github.com/bullhorn)
+- [Status](https://status.bullhorn.com)
+
+## API Evangelist rating
+
+**Kin Score 39.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 61.9 |
+| Access clarity | 60.5 |
+
+**Agent readiness 5.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 37.3** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bullhorn/](https://apis.io/providers/bullhorn/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bullhorn: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bullhorn/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
